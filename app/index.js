@@ -1,22 +1,49 @@
 import { StyleSheet, Text, View } from "react-native";
-import {Link} from 'expo-router';
+import {Link, Stack, Redirect} from 'expo-router';
+
+const users = [
+  {
+    username : 'vadim',
+    name : 'Vadim Savin'
+  },
+  {
+    username: 'alex',
+    name: "Alexandre",
+  },
+  {
+    username: 'Lukas',
+    name: "Lukas Donda",
+  }
+]
 
 
 export default function Page() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.title}>Hello World</Text>
-        <Text style={styles.subtitle}>This is the first page of your app.</Text>
-        <Link href= "/profile?name=Swagatika&surname=Mohapatra" style = {styles.link}>Open Profile 1</Link>
-        <Link href= {{
-          pathname: '/profile', params: {
-            name: "Sanjay", surname: "Prajapat"
-          }
-        }} style = {styles.link}>Open Profile 2</Link>
-      </View>
-    </View>
-  );
+  return <Redirect href = {'/home'} />;
+  // return (
+  //   <View style={styles.container}>
+  //     <View style={styles.main}>
+  //       <Text style={styles.title}>Hello World</Text>
+  //       <Text style={styles.subtitle}>This is the first page of your app.</Text>
+  //       <Link 
+  //         href= "/Alex" 
+  //         style = {styles.link}
+  //       >Open Profile 1</Link>
+
+  //       {users.map((user) => (
+  //         <Link 
+  //         href= {`/${user.username}`}
+  //         style = {styles.link}
+  //         >Open {user.name}'s profile 1</Link>
+  //       ))}
+
+  //       <Link href= {{
+  //         pathname: '/VadimNotJustDev', params: {
+  //           name: "Sanjay", username: "Prajapat"
+  //         }
+  //       }} style = {styles.link}>Open Profile 2</Link>
+  //     </View>
+  //   </View>
+  // );
 }
 
 const styles = StyleSheet.create({
